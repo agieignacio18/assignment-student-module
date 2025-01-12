@@ -20,4 +20,10 @@ export class StudentController {
     findOne(@Param('id') id: number): Promise<Student> {
         return this.studentService.findOne(id);
     }
+
+    @Patch(':id')
+    update(@Param('id') id: number, @Body() updateData: Partial<Student>) {
+        return this.studentService.update(id, updateData);
+    }
+
 }
